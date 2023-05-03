@@ -40,7 +40,7 @@ resource "aws_instance" "sandra_demo_app_server" {
   tags = {
     Name = "ExampleAppServerInstance"
     ttl = "500"
-    purpose = "demo"
+    purpose = "notdemo"
     terraform = "yes"
   }
 }
