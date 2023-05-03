@@ -15,6 +15,7 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
   tags          = {
     Name = "learn_hcp_packer"
+    }
   }
 
 terraform {
@@ -39,7 +40,7 @@ resource "aws_instance" "sandra_demo_app_server" {
   tags = {
     Name = "ExampleAppServerInstance"
     ttl = "500"
-    purpose = "demo"
+    purpose = "notdemo"
     terraform = "yes"
   }
 }
