@@ -1,22 +1,22 @@
-data "hcp_packer_image_iteration" "ubuntu" {
-  bucket_name = "learn-packer-ubuntu"
-  channel     = "production"
-}
+## data "hcp_packer_image_iteration" "ubuntu" {
+##  bucket_name = "learn-packer-ubuntu"
+##  channel     = "production"
+## }
 
-data "hcp_packer_image" "baz" {
-  bucket_name    = "hardened-ubuntu-16-04"
-  cloud_provider = "aws"
-  channel        = "production"
-  region         = "us-east-1"
-}
+## data "hcp_packer_image" "baz" {
+##  bucket_name    = "hardened-ubuntu-16-04"
+##  cloud_provider = "aws"
+##  channel        = "production"
+##  region         = "us-east-1"
+##}
 
-resource "aws_instance" "app_server" {
-  ami           = "data.hcp_packer_image_ubuntu_us_east_2.cloud_image_id"
-  instance_type = "t2.micro"
-  tags          = {
-    Name = "learn_hcp_packer"
-    }
-  }
+## resource "aws_instance" "app_server" {
+## ami           = "data.hcp_packer_image_ubuntu_us_east_2.cloud_image_id"
+##  instance_type = "t2.micro"
+## tags          = {
+##   Name = "learn_hcp_packer"
+##   }
+##  }
 
 terraform {
   required_providers {
