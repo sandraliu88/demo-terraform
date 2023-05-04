@@ -1,40 +1,43 @@
-## data "hcp_packer_image_iteration" "ubuntu" {
-##  bucket_name = "learn-packer-ubuntu"
-##  channel     = "production"
-## }
+ data "hcp_packer_image_iteration" "ubuntu" {
+  bucket_name = "learn-packer-ubuntu"
+  channel     = "latest"
+ }
 
-## data "hcp_packer_image" "baz" {
-##  bucket_name    = "hardened-ubuntu-16-04"
-##  cloud_provider = "aws"
-##  channel        = "production"
-##  region         = "us-east-1"
-##}
+ data "hcp_packer_image" "learn-packer-ubuntu" {
+  bucket_name     = "learn-packer-ubuntu"
+  channel         = "latest"
+  cloud_provider  = "aws"
+  region          = "us-east-2"
+ }
 
-## resource "aws_instance" "app_server" {
-## ami           = "data.hcp_packer_image_ubuntu_us_east_2.cloud_image_id"
-##  instance_type = "t2.micro"
-## tags          = {
-##   Name = "learn_hcp_packer"
-##   }
-##  }
+# Then replace your existing references with
+# data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 4.16"
-    }
+ resource "aws_instance" "app_server" {
+ ami           = "data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id"
+  instance_type = "t2.micro"
+ tags          = {
+   Name = "learn_hcp_packer"
+   }
   }
 
-  required_version = ">= 1.2.0"
-}
+#terraform {
+#  required_providers {
+#    aws = {
+#      source  = "hashicorp/aws"
+#      version = "~> 4.16"
+#    }
+#  }
 
-provider "aws" {
-  region  = "us-east-1"
-}
+#  required_version = ">= 1.2.0"
+#}
 
-resource "aws_instance" "sandra_demo_app_server" {
-  ami           = "ami-830c94e3"
+#provider "aws" {
+#  region  = "us-east-2"
+#}
+
+resource "aws_instance" "sandra_demo_instaces" {
+  ami           = "var.ami-id"
   instance_type = "t2.micro"
 
   tags = {
