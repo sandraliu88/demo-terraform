@@ -32,9 +32,9 @@ terraform {
   required_version = ">= 1.2.0"
 }
 
-##provider "aws" {
-##  region  = "us-east-2"
-##}
+provider "aws" {
+  region  = "us-east-2"
+}
 
 resource "aws_instance" "sandra_demo_instaces" {
   ami           = "var.ami-id"
@@ -43,7 +43,7 @@ resource "aws_instance" "sandra_demo_instaces" {
   tags = {
     Name = "ExampleAppServerInstance"
     ttl = "500"
-    purpose = "notdemo"
+    purpose = "demo"
     terraform = "yes"
   }
 }
