@@ -45,7 +45,7 @@ provider "aws" {
 ## tags = {
 ##    Name = "ExampleAppServerInstance"
 ##    ttl = "500"
-##    purpose = "demo"
+##    purpose = "notdemo"
 ##    terraform = "yes"
 ##  }
 ## }
