@@ -14,7 +14,7 @@
 # data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 
 resource "aws_instance" "app_server" {
-ami           = "ami-097304bf0639dd83a"
+ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 instance_type = "t2.micro"
  tags          = {
    Name = "learn_hcp_packer"
@@ -39,7 +39,7 @@ provider "aws" {
 }
 
 ## resource "aws_instance" "sandra_demo_instaces" {
-##  ami           = "var.ami-id"
+##  ami           = var.ami-id
 ##  instance_type = "t2.micro"
 
 ## tags = {
