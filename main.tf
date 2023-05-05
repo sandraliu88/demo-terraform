@@ -10,6 +10,10 @@
   region          = "us-east-2"
  }
 
+ # output "packer_image" {
+ #   value         = hcp_packer_image.learner-packer-ubuntu
+ # }
+
 # Then replace your existing references with
 # data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 
@@ -38,14 +42,14 @@ provider "aws" {
   region  = "us-east-2"
 }
 
-## resource "aws_instance" "sandra_demo_instaces" {
-##  ami           = var.ami-id
-##  instance_type = "t2.micro"
+ resource "aws_instance" "sandra_demo_instaces" {
+  ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
+  instance_type = "t2.micro"
 
-## tags = {
-##    Name = "ExampleAppServerInstance"
-##    ttl = "500"
-##    purpose = "notdemo"
-##    terraform = "yes"
-##  }
-## }
+ tags = {
+    Name = "ExampleAppServerInstance"
+    ttl = "500"
+    purpose = "notdemo"
+    terraform = "yes"
+  }
+}
