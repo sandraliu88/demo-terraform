@@ -4,6 +4,6 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name = "dev"
-    purpose = "notdemo"
+    purpose = "demo"
   }
 }
