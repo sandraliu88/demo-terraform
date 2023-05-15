@@ -45,13 +45,9 @@ provider "aws" {
  resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
-<<<<<<< HEAD
+
   count = 100
 
-=======
-  count = 2
-  
->>>>>>> a420e86 (Standing up 2 instances)
  tags = {
     Name = "ExampleAppServerInstance"
     ttl = "500"
