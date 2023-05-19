@@ -46,12 +46,13 @@ provider "aws" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
 
-  count = 50
+  count = 2a
 
  tags = {
     Name = "ExampleAppServerInstance"
     ttl = "500"
     purpose = "demo"
     terraform = "yes"
+    provider = "aws"
   }
 }
