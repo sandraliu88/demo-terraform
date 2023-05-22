@@ -49,10 +49,10 @@ provider "aws" {
   count = 2
 
  tags = {
-    Name = "ExampleAppServerInstance"
+    Name = "TestofaSE"
     ttl = "500"
+    owner = "sliu"
     purpose = "demo"
     terraform = "yes"
-    provider = "aws"
   }
 }
