@@ -46,7 +46,7 @@ provider "aws" {
   count = 2
 
  tags = {
-    Name = "TestofaSE"
+    Name = "webapp"
     ttl = "500"
     owner = "sliu"
     purpose = "demo"
