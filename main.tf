@@ -1,4 +1,4 @@
- data "hcp_packer_image_iteration" "ubuntu" {
+data "hcp_packer_image_iteration" "ubuntu" {
   bucket_name = "learn-packer-ubuntu"
   channel     = "latest"
  }
