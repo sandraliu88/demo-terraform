@@ -15,11 +15,11 @@ ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 instance_type = "t2.micro"
  tags          = {
    Name = "learn_hcp_packer"
-   Purpose ="demo"
-   TTL = "500"
+   purpose = "demo"
+   ttl = "500"
    se-region = "west"
-   Owner = "sliu"
-   terraform ="yes"
+   owner = "sliu"
+   terraform = "yes"
    }
   }
 
@@ -45,11 +45,11 @@ resource "aws_instance" "sandra_demo_instances" {
   count = 2
 
  tags = {
-    Name = "webapp1"
-    Purpose ="demo"
-    TTL = "500"
+    Name = "webapp"
+    purpose = "demo"
+    ttl = "500"
     se-region = "west"
-    Owner = "sliu"
-    terraform ="yes"
+    owner = "sliu"
+    terraform = "yes"
   }
 }
