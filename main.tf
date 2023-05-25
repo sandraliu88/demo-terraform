@@ -46,7 +46,7 @@ provider "aws" {
   count = 2
 
  tags = {
-    Name = "webapp"
+    Name = "webapp1"
     ttl = "500"
     owner = "sliu"
     purpose = "demo"
