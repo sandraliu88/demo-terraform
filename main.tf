@@ -10,10 +10,6 @@ data "hcp_packer_image_iteration" "ubuntu" {
   region          = "us-east-2"
  }
 
- # output "packer_image" {
- #   value         = hcp_packer_image.learner-packer-ubuntu
- # }
-
 resource "aws_instance" "app_server" {
 ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
 instance_type = "t2.micro"
@@ -39,7 +35,7 @@ provider "aws" {
   region  = "us-east-2"
 }
 
- resource "aws_instance" "sandra_demo_instances" {
+resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
 
