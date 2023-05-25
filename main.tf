@@ -47,9 +47,8 @@ provider "aws" {
 
  tags = {
     Name = "webapp1"
-    ttl = "500"
-    owner = "sliu"
-    purpose = "demo"
-    terraform = "yes"
+    TTL = "500"
+    Owner = "sliu"
+    Purpose = "demo"
   }
 }
