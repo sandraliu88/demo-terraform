@@ -45,7 +45,7 @@ resource "aws_instance" "sandra_demo_instances" {
   count = 22
 
  tags = {
-    Name = "webapp"
+    Name = "mywebappisawesome"
     purpose = "demo"
     ttl = "500"
     se-region = "west"
