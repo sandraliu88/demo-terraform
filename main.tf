@@ -1,4 +1,4 @@
-data "hcp_packer_image_iteration" "ubuntu" {
+data "hcp_packer_iteration" "ubuntu" {
   bucket_name = "learn-packer-ubuntu"
   channel     = "latest"
  }
@@ -27,7 +27,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.16"
+      version = "~> 5.38.0"
     }
   }
 
@@ -41,14 +41,14 @@ provider "aws" {
 resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
-}
-  count = 2
 
- tags = {
-    Name = "mywebappisawesome"
-    purpose = "demo"
-    ttl = "500"
-    se-region = "west"
-    owner = "sliu"
-    terraform = "yes"
-  }
+  tags = {
+      Name = "mywebappisawesome"
+      purpose = "demo"
+      ttl = "500"
+      se-region = "west"
+      owner = "sliu"
+      terraform = "yes"
+    }
+}
+  
