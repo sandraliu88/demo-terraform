@@ -43,7 +43,7 @@ resource "aws_instance" "sandra_demo_instances" {
   instance_type = "t2.micro"
 
   tags = {
-      Name = "mywebappisawesome"
+      Name = "synopsysdemo"
       purpose = "demo"
       ttl = "500"
       se-region = "west"
