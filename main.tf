@@ -41,7 +41,7 @@ provider "aws" {
 resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
-  count         = 3
+  count         = 22
 
   tags = {
       Name = "mywebapp"
