@@ -1,4 +1,4 @@
-data "hcp_packer_version" "ubuntu" {
+data "hcp_packer_iteration" "ubuntu" {
   bucket_name = "learn-packer-ubuntu"
   channel     = "latest"
  }
@@ -44,11 +44,7 @@ resource "aws_instance" "sandra_demo_instances" {
   count         = 2
 
   tags = {
-<<<<<<< HEAD
       Name = "synopsys"
-=======
-      Name = "synopsysdemo"
->>>>>>> 462cee66511fccf27c7b77df203ed7fb4d2dc9c1
       purpose = "demo"
       ttl = "500"
       se-region = "west"
