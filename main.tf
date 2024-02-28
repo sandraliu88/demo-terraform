@@ -41,9 +41,14 @@ provider "aws" {
 resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
   instance_type = "t2.micro"
+  count         = 2
 
   tags = {
+<<<<<<< HEAD
       Name = "synopsys"
+=======
+      Name = "synopsysdemo"
+>>>>>>> 462cee66511fccf27c7b77df203ed7fb4d2dc9c1
       purpose = "demo"
       ttl = "500"
       se-region = "west"
