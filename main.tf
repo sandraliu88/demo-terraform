@@ -44,7 +44,7 @@ resource "aws_instance" "sandra_demo_instances" {
   count         = 3
 
   tags = {
-      Name = "synopsys"
+      Name = "mywebapp"
       purpose = "demo"
       ttl = "500"
       se-region = "west"
