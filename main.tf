@@ -1,9 +1,9 @@
-data "hcp_packer_iteration" "ubuntu" {
+data "hcp_packer_version" "ubuntu" {
   bucket_name = "learn-packer-ubuntu"
   channel     = "latest"
  }
 
- data "hcp_packer_image" "learn-packer-ubuntu" {
+ data "hcp_packer_artifact" "learn-packer-ubuntu" {
   bucket_name     = "learn-packer-ubuntu"
   channel         = "latest"
   cloud_provider  = "aws"
