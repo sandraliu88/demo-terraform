@@ -2,7 +2,7 @@ data "hcp_packer_artifact" "learn-packer-ubuntu" {
   bucket_name   = "learn-packer-ubuntu"
   channel_name  = "latest"
   platform      = "aws"
-  region        = "us-west-1"
+  region        = "us-east-2"
 }
 
 resource "aws_instance" "app_server" {
@@ -30,6 +30,13 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-2"
+}
+
+data "hcp_packer_artifact" "learn-packer-ubuntu" {
+  bucket_name   = "learn-packer-ubuntu"
+  channel_name  = "latest"
+  platform      = "aws"
+  region        = "us-east-2"
 }
 
 resource "aws_instance" "sandra_demo_instances" {
