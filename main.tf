@@ -25,7 +25,7 @@ resource "aws_instance" "sandra_demo_instances" {
   count         = 2
 
   tags = {
-      Name = "clouderademo"
+      Name = "demoforcloudera"
       purpose = "demo"
       ttl = "500"
       se-region = "west"
