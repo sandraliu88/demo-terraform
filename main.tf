@@ -5,19 +5,6 @@ data "hcp_packer_artifact" "learn-packer-ubuntu" {
   region        = "us-east-2"
 }
 
-resource "aws_instance" "app_server" {
-ami           = data.hcp_packer_artifact.learn-packer-ubuntu.external_identifier
-instance_type = "t2.micro"
- tags          = {
-   Name = "learn_hcp_packer"
-   purpose = "demo"
-   ttl = "500"
-   se-region = "west"
-   owner = "sliu"
-   terraform = "yes"
-   }
-  }
-
 terraform {
   required_providers {
     aws = {
@@ -30,13 +17,6 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-2"
-}
-
-data "hcp_packer_artifact" "learn-packer-ubuntu" {
-  bucket_name   = "learn-packer-ubuntu"
-  channel_name  = "latest"
-  platform      = "aws"
-  region        = "us-east-2"
 }
 
 resource "aws_instance" "sandra_demo_instances" {
