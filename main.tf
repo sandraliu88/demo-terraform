@@ -28,6 +28,9 @@ terraform {
 
   required_version = ">= 1.2.0"
 }
+provider "aws" {
+  region  = "us-east-2"
+}
 
 resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_artifact.learn-packer-ubuntu
