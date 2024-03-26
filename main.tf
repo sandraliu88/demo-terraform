@@ -1,14 +1,14 @@
-data "hcp_packer_version" "ubuntu" {
-  bucket_name = "learn-packer-ubuntu"
-  channel     = "latest"
- }
+data "hcp-packer-version" "hardened-source" {
+  bucket_name  = "hardened-ubuntu-16-04"
+  channel_name = "dev"
+}
 
- data "hcp_packer_artifact" "learn-packer-ubuntu" {
-  bucket_name     = "learn-packer-ubuntu"
-  channel         = "latest"
-  cloud_provider  = "aws"
-  region          = "us-east-2"
- }
+data "hcp-packer-artifact" "example" {
+  bucket_name         = "hardened-ubuntu-16-04"
+  version_fingerprint = data.hcp_packer_version.hardened-source.fingerprint
+  platform            = "aws"
+  region              = "us-east-1"
+}
 
 resource "aws_instance" "app_server" {
 ami           = data.hcp_packer_image.learn-packer-ubuntu.cloud_image_id
