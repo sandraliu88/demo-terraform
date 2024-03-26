@@ -22,7 +22,7 @@ provider "aws" {
 resource "aws_instance" "sandra_demo_instances" {
   ami           = data.hcp_packer_artifact.learn-packer-ubuntu.external_identifier
   instance_type = "t2.micro"
-  count         = 2
+  count         = 22
 
   tags = {
       Name = "demoforcloudera"
